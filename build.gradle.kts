@@ -1,21 +1,20 @@
+import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val detektVersion = "1.23.4" // https://mvnrepository.com/artifact/io.gitlab.arturbosch.detekt/detekt-gradle-plugin
+val kotestVersion = "5.8.0" // https://mvnrepository.com/artifact/io.kotest/kotest-runner-junit5
+val junitVersion = "5.10.1" // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
 
 plugins {
     val kotlinVersion = "1.9.21"
     val detektVersion = "1.23.4" // https://mvnrepository.com/artifact/io.gitlab.arturbosch.detekt/detekt-gradle-plugin
 
-    id("org.springframework.boot") version "3.2.0"
-    id("io.spring.dependency-management") version "1.1.4"
-
     kotlin("jvm") version kotlinVersion
-    kotlin("plugin.spring") version kotlinVersion
 
     id("io.gitlab.arturbosch.detekt") version detektVersion
 }
 
-group = "de.iits"
+group = "de.iits.petkno"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -27,12 +26,13 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
+    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+    testImplementation("io.kotest:kotest-assertions-json:$kotestVersion")
 }
 
 tasks.withType<KotlinCompile> {
@@ -43,9 +43,17 @@ tasks.withType<KotlinCompile> {
 }
 
 detekt {
+    buildUponDefaultConfig = true
     config.from("config/detekt.yaml")
 }
 
-tasks.withType<Test> {
-    useJUnit()
+tasks.withType<Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+    }
+}
+
+
+tasks.test {
+    useJUnitPlatform()
 }

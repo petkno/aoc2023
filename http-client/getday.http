@@ -8,4 +8,4 @@
 GET https://adventofcode.com/2023/day/{{day}}/input
 Cookie: session={{AOC_SESSION}}
 
->>! {{$projectRoot}}/src/test/resources/{{project}}/input.txt
+>>! {{$projectRoot}}/src/main/resources/{{project}}/input.txt
