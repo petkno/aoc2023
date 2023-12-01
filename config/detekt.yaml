@@ -1,0 +1,4 @@
+# https://detekt.dev/docs/rules/performance/
+performance:
+  SpreadOperator:
+    active: false
