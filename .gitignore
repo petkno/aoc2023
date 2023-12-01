@@ -13,3 +13,6 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+
+### Private Files
+*.private.env.json

@@ -1,0 +1,11 @@
+< {%
+    const day = new Date().getDate()
+
+    const project = "day" + ("0" + day).slice(-2)
+    request.variables.set("day", day.toString())
+    request.variables.set("project", project)
+%}
+GET https://adventofcode.com/2023/day/{{day}}/input
+Cookie: session={{AOC_SESSION}}
+
+>> {{$projectRoot}}/src/test/resources/{{project}}/input.txt
