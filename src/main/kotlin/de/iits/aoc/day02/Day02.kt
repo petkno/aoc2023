@@ -1,5 +1,6 @@
-package de.iits.aoc
+package de.iits.aoc.day02
 
+import de.iits.aoc.readInput
 import kotlin.math.max
 
 class Day02(input: List<String>) {

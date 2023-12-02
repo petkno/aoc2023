@@ -1,4 +1,6 @@
-package de.iits.aoc
+package de.iits.aoc.day01
+
+import de.iits.aoc.readInput
 
 class Day01 {
     fun part1(input: List<String>) = input
@@ -29,7 +31,6 @@ class Day01 {
             result += replacement?.let { replacement } ?: calibrationLine[i]
             i++
         }
-        println("$calibrationLine -> $result")
         return result
     }
 
