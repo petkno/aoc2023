@@ -1,5 +1,6 @@
 package de.iits.aoc
 
-import java.io.File
+import kotlin.io.path.Path
+import kotlin.io.path.readLines
 
-fun readInput(filename: String) = File("src/main/resources/$filename", "input.txt").readLines()
+fun readInput(filename: String) = Path("src/main/resources/$filename/input.txt").readLines()
