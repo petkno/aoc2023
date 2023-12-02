@@ -35,7 +35,6 @@ class Day02(input: List<String>) {
             count
         }
 
-
     fun part2() =
         games.sumOf {
             val limits = mutableMapOf<String, Int>()
@@ -55,6 +54,7 @@ class Day02(input: List<String>) {
 
 fun main() {
     val input = readInput("day02")
+    @Suppress("MagicNumber")
     println(Day02(input).part1(mapOf("red" to 12, "green" to 13, "blue" to 14)))
     println(Day02(input).part2())
 }
