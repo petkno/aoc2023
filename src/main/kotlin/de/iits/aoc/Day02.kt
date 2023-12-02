@@ -6,12 +6,20 @@ class Day02(input: List<String>) {
     private val games = input.map { it.toGame() }
 
     private fun String.toGame(): Game {
-        val gameId = this.split(':')[0].split(' ')[1].toInt()
-        val hand = this.split(':')[1].split(';')
-            .map {
-                it.split(',')
-                    .map { it.trim() }.associate { it.split(' ').let { (count, color) -> color to count.toInt() } }
+        val gameId = this.split(':').first().split(' ')[1].toInt()
+        val hand = this.split(": ")
+            .last()
+            .split("; ")
+            .map { cubeSet ->
+                cubeSet
+                    .split(", ")
+                    .associate { cube ->
+                        cube
+                            .split(' ')
+                            .let { (count, color) -> color to count.toInt() }
+                    }
             }
+            .also { println(it) }
 
         return Game(gameId = gameId, hand = hand)
     }
