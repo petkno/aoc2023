@@ -1,4 +1,13 @@
+# https://detekt.dev/docs/rules/formatting/
+formatting:
+    MaximumLineLength:
+        maxLineLength: 160
 # https://detekt.dev/docs/rules/performance/
 performance:
-  SpreadOperator:
-    active: false
+    SpreadOperator:
+        active: false
+
+# https://detekt.dev/docs/rules/style/
+style:
+    MaxLineLength:
+        maxLineLength: 160
