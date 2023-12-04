@@ -1,5 +1,3 @@
-@file:Suppress("MatchingDeclarationName", "Filename")
-
 package de.iits.aoc.day01.seb02
 
 import de.iits.aoc.readInput
