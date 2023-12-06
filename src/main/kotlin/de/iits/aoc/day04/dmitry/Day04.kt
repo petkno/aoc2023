@@ -1,12 +1,11 @@
 package de.iits.aoc.day04.dmitry
 
-import kotlin.io.path.Path
-import kotlin.io.path.readLines
+import de.iits.aoc.readInput
 
 private const val DAY_ANSWER_1 = 28_750
 
 fun main() {
-    Path("src/main/resources/day04/input.txt").readLines()
+    readInput("day04")
         .map { line ->
             val (_, winningNumbersText, ourNumbersText) = line.split(":", "|")
             val winningNumbers = winningNumbersText.split(" ").filter { it.isNotBlank() }.map { it.toInt() }

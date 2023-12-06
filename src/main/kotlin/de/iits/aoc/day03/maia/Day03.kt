@@ -1,6 +1,7 @@
 package de.iits.aoc.day03.maia
 
-import java.io.File
+import de.iits.aoc.readInput
+import de.iits.aoc.readTestInput
 import kotlin.system.measureTimeMillis
 
 typealias SchematicRow = List<Element>
@@ -97,7 +98,7 @@ const val DAY_TEST_ANSWER_2 = day.EXPECTED_PART_2_TEST
 
 fun main() {
     println("***** Day$DAY_NUMBER *****")
-    val testInput = File("src/main/resources/day03/input_test.txt").readLines()
+    val testInput = readTestInput("day03")
     var part1Test: Long
     val part1TestMillis = measureTimeMillis {
         part1Test = day.part1(testInput)
@@ -112,7 +113,7 @@ fun main() {
     println("✅ two with $DAY_TEST_ANSWER_2 ✅ in $part2TestMillis ms")
     println("*****************")
 
-    val input = File("src/main/resources/day03/input.txt").readLines()
+    val input = readInput("day03")
     var part1: Long
     val part1Millis = measureTimeMillis {
         part1 = day.part1(input)

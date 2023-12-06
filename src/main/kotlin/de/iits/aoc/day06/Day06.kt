@@ -1,7 +1,7 @@
 package de.iits.aoc.day06
 
-import kotlin.io.path.Path
-import kotlin.io.path.readLines
+import de.iits.aoc.readInput
+import de.iits.aoc.readTestInput
 import kotlin.system.measureTimeMillis
 
 object Day06 {
@@ -41,7 +41,7 @@ fun main() {
     val day = Day06
 
     println("***** Day$dayNumber *****")
-    val testInput = Path("src/main/resources/day$dayNumber/input_test.txt").readLines()
+    val testInput = readTestInput("day$dayNumber")
     var part1Test: Long
     val part1TestMillis = measureTimeMillis {
         part1Test = day.part1(testInput)
@@ -56,7 +56,7 @@ fun main() {
     println("✅ two with $DAY_TEST_ANSWER_2 ✅ in $part2TestMillis ms")
     println("*****************")
 
-    val input = Path("src/main/resources/day$dayNumber/input.txt").readLines()
+    val input = readInput("day$dayNumber")
     var part1: Long
     val part1Millis = measureTimeMillis {
         part1 = day.part1(input)
