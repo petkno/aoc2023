@@ -12,7 +12,6 @@ object Day06 {
             }
             .let { calculateNumberOfPossibleBeats(it) }
 
-
     fun part2(input: List<String>) =
         input
             .map { line ->
